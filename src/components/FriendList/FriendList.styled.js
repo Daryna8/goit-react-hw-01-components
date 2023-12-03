@@ -18,7 +18,7 @@ export const StyledListItem = styled.li`
 `;
 
 export const StyledOnlineIndicator = styled.div`
-  background-color: ${props => (props.isOnline ? 'green' : 'red')};
+  background-color: ${props => (props.$isOnline ? 'green' : 'red')};
   height: 18px;
   width: 18px;
   border-radius: 50%;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { getRandomBgColor } from 'components/helpers/getRandomBgColor';
+import { getRandomBgColor } from 'helpers/getRandomBgColor';
 import {
   StyledStatistics,
   StyledTitle,
@@ -9,15 +9,15 @@ import {
   StyledPercentage,
 } from './Statistics.styled';
 
-export const Statistics = ({ title, stats = [] }) => {
+export const Statistics = ({ title, stats }) => {
   return (
     <StyledStatistics>
       {title && <StyledTitle>{title}</StyledTitle>}
       <StyledStatList>
-        {stats.map(el => (
-          <StyledItem key={el.id} backgroundColor={getRandomBgColor()}>
-            <StyledLabel>{el.label}</StyledLabel>
-            <StyledPercentage>{el.percentage}%</StyledPercentage>
+        {stats.map(({ id, label, percentage }) => (
+          <StyledItem key={id} $backgroundColor={getRandomBgColor()}>
+            <StyledLabel>{label}</StyledLabel>
+            <StyledPercentage>{percentage}%</StyledPercentage>
           </StyledItem>
         ))}
       </StyledStatList>

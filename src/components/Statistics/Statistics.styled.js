@@ -21,7 +21,7 @@ export const StyledStatList = styled.ul`
 `;
 
 export const StyledItem = styled.li`
-  background-color: ${props => props.backgroundColor};
+  background-color: ${props => props.$backgroundColor};
 `;
 
 export const StyledLabel = styled.span`

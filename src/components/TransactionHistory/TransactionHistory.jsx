@@ -7,7 +7,7 @@ import {
   StyledTableData,
 } from './TransactionHistory.styled';
 
-export const TransactionHistory = ({ items = [] }) => {
+export const TransactionHistory = ({ items }) => {
   return (
     <StyledTransactionHistory className="transaction-history">
       <StyledTableHead>
@@ -19,11 +19,11 @@ export const TransactionHistory = ({ items = [] }) => {
       </StyledTableHead>
 
       <tbody>
-        {items.map((el, index) => (
-          <StyledTableRow key={el.id} isEven={index % 2}>
-            <StyledTableData>{el.type}</StyledTableData>
-            <StyledTableData>{el.amount}</StyledTableData>
-            <StyledTableData>{el.currency}</StyledTableData>
+        {items.map(({ id, index, type, amount, currency }) => (
+          <StyledTableRow key={id} $isEven={index % 2}>
+            <StyledTableData>{type}</StyledTableData>
+            <StyledTableData>{amount}</StyledTableData>
+            <StyledTableData>{currency}</StyledTableData>
           </StyledTableRow>
         ))}
       </tbody>
@@ -36,7 +36,7 @@ TransactionHistory.propTypes = {
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       type: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
     })
   ).isRequired,

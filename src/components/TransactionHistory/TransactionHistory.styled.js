@@ -26,7 +26,7 @@ export const StyledTableHeader = styled.th`
 `;
 
 export const StyledTableRow = styled.tr`
-  background-color: ${props => (props.isEven ? 'lightgrey' : 'white')};
+  background-color: ${props => (props.$isEven ? 'lightgrey' : 'white')};
   &:last-child td {
     border-bottom: none;
   }
